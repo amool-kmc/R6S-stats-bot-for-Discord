@@ -45,7 +45,7 @@ def speakMessage(name):
 #r6sstatsを取る
 @asyncio.coroutine
 def setData(playername):
-    auth = api.Auth(tokens.mail,tokens.password)
+    auth = api.Auth(os.environ.get('UPLAY_EMAIL'),os.environ.get('UPLAY_PASS'))
     
     player = yield from auth.get_player(playername, api.Platforms.UPLAY)
     yield from player.load_general()
