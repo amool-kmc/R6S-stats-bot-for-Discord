@@ -1,6 +1,6 @@
-import tokens
 import discord
 import asyncio
+import os
 import r6sapi as api
 
 client = discord.Client()
@@ -63,4 +63,4 @@ def setData(playername):
     dataDict['hs'] = player.headshots
             
 #実行
-client.run(tokens.bot_token)
+client.run(os.environ.get('BOT_TOKEN'))
