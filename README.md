@@ -1,7 +1,7 @@
 # R6S-stats-bot-for-Discord
 RainbowSixSiegeのステータス情報をDiscordで表示するbot
 
-## How to Use
+## つかいかた
 ```
 r6s stats (調べたい人の名前)
 ```
