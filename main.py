@@ -30,15 +30,15 @@ async def on_message(message):
         
 #message内容
 def speakMessage(name):
-    name = "NAME : " + name
-    kd = "K/D : " + str('{:.3f}'.format(float(dataDict['kill'])/float(dataDict['death'])))
-    time = "PLAY TIME : " + str('{:.3f}'.format(float(dataDict['time'])/3600)) + " h "
-    level = "LEVEL : " + str(dataDict['level'])
-    wp = "WP : " + str('{:.3f}'.format(float(dataDict['win'])/float(dataDict['gamenum'])))
-    rank = "RANK : " + dataDict['rank']
-    hsp = "HS/K : " + str('{:.3f}'.format(float(dataDict['hs'])/float(dataDict['kill'])))
+    name = "*NAME*\n" + name
+    kd = "*KILL/DEATH*\n" + str('{:.3f}'.format(float(dataDict['kill'])/float(dataDict['death'])))
+    time = "*PLAY TIME*\n" + str('{:.3f}'.format(float(dataDict['time'])/3600)) + " h "
+    level = "*LEVEL*\n" + str(dataDict['level'])
+    wp = "*WINNING PERCENTAGE*\n" + str('{:.3f}'.format(float(dataDict['win'])/float(dataDict['gamenum'])))
+    rank = "*RANK*\n" + dataDict['rank']
+    hsp = "*HEAD SHOT KILL PERCENTAGE*\n" + str('{:.3f}'.format(float(dataDict['hs'])/float(dataDict['kill'])))
     
-    return name+"\n"+level+"    "+rank+"\n"+kd+"    "+hsp+"    "+wp+"\n"+time
+    return name+"\n"+level+"\n"+rank+"\n"+kd+"\n"+hsp+"\n"+wp+"\n"+time
 
 
 
