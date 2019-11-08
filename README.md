@@ -6,3 +6,5 @@ RainbowSixSiegeのステータス情報をDiscordで表示するbot
 r6s stats (調べたい人の名前)
 ```
 と発言するとSixがステータスを教えてくれる。
+
+## 表示内容
