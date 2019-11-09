@@ -37,8 +37,9 @@ def speakMessage(name):
     wp = "**WINNING PERCENTAGE**\n> " + str('{:.3f}'.format(float(dataDict['win'])/float(dataDict['gamenum'])))
     rank = "**RANK**\n> " + dataDict['rank']
     hsp = "**HEAD SHOT KILL PERCENTAGE**\n> " + str('{:.3f}'.format(float(dataDict['hs'])/float(dataDict['kill'])))
+    survival_rate = "**SURVIVAL RATE**\n> " + str(':.3f'.format((float(dataDict['total_round'])-float(dataDict['death']))/float(dataDict['total_round'])))
     
-    return name+"\n"+level+"\n"+rank+"\n"+kd+"\n"+hsp+"\n"+wp+"\n"+time
+    return name+"\n"+level+"\n"+rank+"\n"+kd+"\n"+hsp+"\n"+wp+"\n"+time+"\n"+survival_rate
 
 
 
