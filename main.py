@@ -63,6 +63,13 @@ def setData(playername):
     dataDict['gamenum'] = player.matches_played
     dataDict['rank'] = rank.rank
     dataDict['hs'] = player.headshots
-            
+
+    #全ラウンド数
+    total_round = 0
+    for operator in operators.values():
+        total_round = total_round + operator.wins + operator.losses
+        
+    dataDict['total_round'] = total_round
+    
 #実行
 client.run(os.environ.get('BOT_TOKEN'))
