@@ -30,16 +30,16 @@ async def on_message(message):
         
 #message内容
 def speakMessage(name):
-    name = "**NAME**\n> " + name
-    kd = "**KILL/DEATH**\n> " + str('{:.3f}'.format(float(dataDict['kill'])/float(dataDict['death'])))
-    time = "**PLAY TIME**\n> " + str('{:.3f}'.format(float(dataDict['time'])/3600)) + " h "
-    level = "**LEVEL**\n> " + str(dataDict['level'])
-    wp = "**WINNING PERCENTAGE**\n> " + str('{:.3f}'.format(float(dataDict['win'])/float(dataDict['gamenum'])))
-    rank = "**RANK**\n> " + dataDict['rank']
-    hsp = "**HEAD SHOT KILL PERCENTAGE**\n> " + str('{:.3f}'.format(float(dataDict['hs'])/float(dataDict['kill'])))
-    survival_rate = "**SURVIVAL RATE**\n> " + str('{:.3f}'.format((float(dataDict['total_round'])-float(dataDict['death']))/float(dataDict['total_round'])))
+    name = "**NAME（ユーザー名）**\n> " + name
+    kd = "**KILL/DEATH（キルデス比）**\n> " + str('{:.3f}'.format(float(dataDict['kill'])/float(dataDict['death'])))
+    time = "**PLAY TIME（プレイ時間）**\n> " + str('{:.3f}'.format(float(dataDict['time'])/3600)) + " h "
+    level = "**LEVEL（クリアランスレベル）**\n> " + str(dataDict['level'])
+    wp = "**WINNING PERCENTAGE（勝率）**\n> " + str('{:.3f}'.format(float(dataDict['win'])/float(dataDict['gamenum'])))
+    rank = "**RANK（ランク）**\n> " + dataDict['rank']
+    hsp = "**HEAD SHOT KILL PERCENTAGE（ヘッドショットキル率）**\n> " + str('{:.3f}'.format(float(dataDict['hs'])/float(dataDict['kill'])))
+    survival_rate = "**SURVIVAL RATE（生存率）**\n> " + str('{:.3f}'.format((float(dataDict['total_round'])-float(dataDict['death']))/float(dataDict['total_round'])))
     
-    return name+"\n"+level+"\n"+rank+"\n"+kd+"\n"+hsp+"\n"+wp+"\n"+time+"\n"+survival_rate
+    return name+"\n"+level+"\n"+time+"\n"+rank+"\n"+kd+"\n"+hsp+"\n"+survival_rate+"\n"+wp
 
 
 
@@ -52,7 +52,7 @@ def setData(playername):
     yield from player.load_general()
     yield from player.load_level()
     rank = yield from player.get_rank("apac") #class Rank
-    operators = yield from player.get_all_operators() #type dict[class Operator]
+    operators = yield from player.get_all_operators() #type dict[class Operator]、keyは不明、値にoperatorクラス
     
     global dataDict
     dataDict['name'] = player.userid
