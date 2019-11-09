@@ -50,7 +50,9 @@ def setData(playername):
     player = yield from auth.get_player(playername, api.Platforms.UPLAY)
     yield from player.load_general()
     yield from player.load_level()
-    rank = yield from player.get_rank("apac")
+    rank = yield from player.get_rank("apac") #class Rank
+    operators = yield from player.get_all_operators() #type dict[class Operator]
+    
     global dataDict
     dataDict['name'] = player.userid
     dataDict['kill'] = player.kills
