@@ -1,7 +1,9 @@
 # R6S-stats-bot-for-Discord
-RainbowSixSiegeのステータス情報をDiscordで表示するbot
+RainbowSixSiegeのステータス情報をDiscordで表示するbot。
+bot名は'Commander Six'。
 
 ## つかいかた
+このbotを招待しているDiscordサーバーの任意のチャンネルで
 ```
 r6s stats (調べたい人の名前)
 ```
