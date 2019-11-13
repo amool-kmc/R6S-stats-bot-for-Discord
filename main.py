@@ -32,12 +32,12 @@ async def on_message(message):
 def speakMessage(name):
     name = "**NAME（ユーザー名）**\n> " + name
     kd = "**KILL/DEATH（キルデス比）**\n> " + str('{:.3f}'.format(float(dataDict['kill'])/float(dataDict['death'])))
-    time = "**PLAY TIME（プレイ時間）**\n> " + str('{:.3f}'.format(float(dataDict['time'])/3600)) + " h "
+    time = "**PLAY TIME（プレイ時間）**\n> " + str('{:.3f}'.format(float(dataDict['time'])/3600)) + " h"
     level = "**LEVEL（クリアランスレベル）**\n> " + str(dataDict['level'])
-    wp = "**WINNING PERCENTAGE（勝率）**\n> " + str('{:.3f}'.format(float(dataDict['win'])/float(dataDict['gamenum'])))
+    wp = "**WINNING PERCENTAGE（勝率）**\n> " + str('{:.3f}'.format(float(dataDict['win'])/float(dataDict['gamenum'])*100)) + " %"
     rank = "**RANK（ランク）**\n> " + dataDict['rank']
-    hsp = "**HEAD SHOT KILL PERCENTAGE（ヘッドショットキル率）**\n> " + str('{:.3f}'.format(float(dataDict['hs'])/float(dataDict['kill'])))
-    survival_rate = "**SURVIVAL RATE（生存率）**\n> " + str('{:.3f}'.format((float(dataDict['total_round'])-float(dataDict['death']))/float(dataDict['total_round'])))
+    hsp = "**HEAD SHOT KILL PERCENTAGE（ヘッドショットキル率）**\n> " + str('{:.3f}'.format(float(dataDict['hs'])/float(dataDict['kill'])*100)) + " %"
+    survival_rate = "**SURVIVAL RATE（生存率）**\n> " + str('{:.3f}'.format((float(dataDict['total_round'])-float(dataDict['death']))/float(dataDict['total_round'])*100)) + " %"
     
     return name+"\n"+level+"\n"+time+"\n"+rank+"\n"+kd+"\n"+hsp+"\n"+survival_rate+"\n"+wp
 
