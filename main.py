@@ -6,7 +6,9 @@ import r6sapi as api
 client = discord.Client()
 dataDict = {}
 
-#起動確認
+###----------------------------------------------------------------------------------------------
+###起動確認
+###----------------------------------------------------------------------------------------------
 @client.event
 async def on_ready():
     print('Logged in as')
@@ -14,10 +16,12 @@ async def on_ready():
     print(client.user.id)
     print('----------')
 
-#発言用
+###----------------------------------------------------------------------------------------------    
+###キーワードに対し応答する関数
+###----------------------------------------------------------------------------------------------
 @client.event
 async def on_message(message):
-    #\r6s stats始まりで起動
+    #r6s stats始まりで起動
     if message.content.startswith('r6s stats') and client.user != message.author:
         playername = message.content[10:]
 
@@ -26,9 +30,9 @@ async def on_message(message):
         sm = speakMessage(playername)
         await message.channel.send(sm)
 
-
-        
-#message内容
+###----------------------------------------------------------------------------------------------
+###メッセージ内容を生成する関数
+###----------------------------------------------------------------------------------------------
 def speakMessage(name):
     name = "**NAME（ユーザー名）**\n> " + name
     kd = "**KILL/DEATH（キルデス比）**\n> " + str('{:.3f}'.format(float(dataDict['kill'])/float(dataDict['death'])))
@@ -42,8 +46,9 @@ def speakMessage(name):
     return name+"\n"+level+"\n"+time+"\n"+rank+"\n"+kd+"\n"+hsp+"\n"+survival_rate+"\n"+wp
 
 
-
-#r6sstatsを取る
+###----------------------------------------------------------------------------------------------
+###r6sのステータスをセットする関数
+###----------------------------------------------------------------------------------------------
 @asyncio.coroutine
 def setData(playername):
     auth = api.Auth(os.environ.get('UPLAY_EMAIL'),os.environ.get('UPLAY_PASS'))
