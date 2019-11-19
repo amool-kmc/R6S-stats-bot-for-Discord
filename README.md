@@ -6,8 +6,8 @@ bot名は'Commander Six'。[こちら](https://discordapp.com/api/oauth2/authori
 ## つかいかた
 このbotを招待しているDiscordサーバーの任意のチャンネルで
 ```
-r6s stats (調べたい人の名前)
+r6s stats 'Uplay ID'
 ```
-と発言するとSixがステータスを教えてくれる。
+と発言すると、'Uplay ID'の人のステータスをSix教えてくれる。
 
 ## 表示内容
