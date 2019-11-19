@@ -23,11 +23,16 @@ async def on_ready():
 async def on_message(message):
     #r6s stats始まりで起動
     if message.content.startswith('r6s stats') and client.user != message.author:
+        #入力されたユーザーネームを取得
         playername = message.content[10:]
 
+        #R6Sのステータスを取得
         await setData(playername)
 
+        #返答するメッセージ内容を取得
         sm = speakMessage(playername)
+
+        #メッセージをDiscordで発言
         await message.channel.send(sm)
 
 ###----------------------------------------------------------------------------------------------
@@ -76,6 +81,7 @@ def setData(playername):
         total_round = total_round + operator.wins + operator.losses
         
     dataDict['total_round'] = total_round
+
     
 #実行
 client.run(os.environ.get('BOT_TOKEN'))
